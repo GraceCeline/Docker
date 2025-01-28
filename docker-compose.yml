@@ -1,0 +1,21 @@
+services:
+  django:
+    container_name: django-rest
+    image: django-rest:latest
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/app
+  
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: celine123
+      MYSQL_DATABASE: django_db
+      MYSQL_USER: grace
+      MYSQL_PASSWORD: celine123
+    volumes:
+      - mysql:/var/lib/docker/volumes/
+
+volumes:
+  mysql:
