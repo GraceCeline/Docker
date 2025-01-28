@@ -1,11 +1,13 @@
 services:
   django:
     container_name: django-rest
-    image: django-rest:latest
+    image: gflorensia/workshop-project:django-1.0.0
     ports:
       - "8000:8000"
     volumes:
       - ./:/app
+    networks:
+      - workshop
   
   mysql:
     image: mysql:8.0
@@ -16,6 +18,16 @@ services:
       MYSQL_PASSWORD: celine123
     volumes:
       - mysql:/var/lib/docker/volumes/
+    networks:
+      - workshop
+  
+  angular:
+    image: gflorensia/workshop-project:angular-1.0.0
+    ports:
+     - "4200:80"
+    
 
 volumes:
   mysql:
+networks:
+  - workshop
