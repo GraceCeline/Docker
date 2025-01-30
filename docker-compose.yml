@@ -2,13 +2,13 @@ version: '3'
 
 services:
   django:
-    build: ./Workshop
+    # build: ./Workshop
     container_name: django-rest
     image: gflorensia/workshop-project:django-1.0.0
     ports:
       - "8000:8000"
     volumes:
-      - ./config/settings.py:/app/config/settings.py
+      - ./config/settings.py:/app/src/settings/settings.py
     environment:
       DOCKERIZED: "1"
     networks:
@@ -29,7 +29,7 @@ services:
       - workshop
   
   angular:
-    build: ./workshop-angular
+    # build: ./workshop-angular
     container_name: angular
     image: gflorensia/workshop-project:angular-1.0.0
     ports:
