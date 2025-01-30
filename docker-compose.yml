@@ -4,7 +4,7 @@ services:
   django:
     # build: ./Workshop
     container_name: django-rest
-    image: gflorensia/workshop-project:django-1.0.0
+    image: gflorensia/workshop-project:django-1.0.1
     ports:
       - "8000:8000"
     volumes:
