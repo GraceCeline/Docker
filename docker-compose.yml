@@ -1,13 +1,20 @@
+version: '3'
+
 services:
   django:
+    build: ./Workshop
     container_name: django-rest
     image: gflorensia/workshop-project:django-1.0.0
     ports:
       - "8000:8000"
     volumes:
-      - ./:/app
+      - ./config/settings.py:/app/config/settings.py
+    environment:
+      DOCKERIZED: "1"
     networks:
       - workshop
+    depends_on:
+      - mysql
   
   mysql:
     image: mysql:8.0
@@ -17,17 +24,20 @@ services:
       MYSQL_USER: grace
       MYSQL_PASSWORD: celine123
     volumes:
-      - mysql:/var/lib/docker/volumes/
+      - mysql:/var/lib/mysql/
     networks:
       - workshop
   
   angular:
+    build: ./workshop-angular
+    container_name: angular
     image: gflorensia/workshop-project:angular-1.0.0
     ports:
      - "4200:80"
-    
+    networks:
+     - workshop
 
 volumes:
   mysql:
 networks:
-  - workshop
+  workshop:
