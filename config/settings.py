@@ -126,10 +126,10 @@ WSGI_APPLICATION = 'src.settings.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('MYSQL_DATABASE', 'django_db'),
-        'USER': os.getenv('MYSQL_USER', 'grace'),
-        'PASSWORD': os.getenv('MYSQL_PASSWORD', 'celine123'),
-        'HOST': os.getenv('MYSQL_HOST', 'mysql'),
+        'NAME': os.getenv('MYSQL_DATABASE'),
+        'USER': os.getenv('MYSQL_USER'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD'),
+        'HOST': os.getenv('MYSQL_HOST'),
     }
 }
 

@@ -1,6 +1,0 @@
-[submodule "Workshop"]
-	path = Workshop
-	url = https://github.com/GraceCeline/Workshop.git
-[submodule "workshop-angular"]
-	path = workshop-angular
-	url = https://github.com/GraceCeline/Angular.git
