@@ -30,4 +30,4 @@ services:
 volumes:
   mysql:
 networks:
-  - workshop
+  workshop:
