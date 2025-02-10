@@ -6,6 +6,7 @@
       git:
         repo: "https://github.com/GraceCeline/Docker.git"
         dest: /home/ubuntu/workshop-project
+        version: ansible
         update: yes
 
     - name: Run Docker Container
