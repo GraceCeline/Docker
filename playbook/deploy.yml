@@ -1,0 +1,13 @@
+- name: Start Docker App
+  become: true
+
+  tasks:
+    - name: Pull Git Repository
+      git:
+        repo: "https://github.com/GraceCeline/Docker.git"
+        dest: /home/ubuntu/workshop-project
+        update: yes
+
+    - name: Run Docker Container
+      chdir: /home/ubuntu/workshop-project
+      command: docker-compose up --build -d
