@@ -6,7 +6,6 @@ services:
       - "8000:8000"
     volumes:
       - ./Workshop/:/app
-    command: sh -c python manage.py migrate
     networks:
       - workshop
   
