@@ -1,7 +1,15 @@
 - name: Start Docker App
+  hosts: localhost
   become: true
 
   tasks:
+    - name: Install Docker Compose
+      apt:
+        pkg:
+          - docker-compose
+        state: latest
+        update_cache: true
+
     - name: Pull Git Repository
       git:
         repo: "https://github.com/GraceCeline/Docker.git"
@@ -10,5 +18,6 @@
         update: yes
 
     - name: Run Docker Container
-      chdir: /home/ubuntu/workshop-project
       command: docker-compose up --build -d
+      args:
+        chdir: /home/ubuntu/workshop-project
